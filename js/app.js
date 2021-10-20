@@ -1,26 +1,67 @@
-window.addEventListener("load", obtenerDatos);
-function obtenerDatos() {
-  const nasaApiKey = "wksdu5O40vOdQMOBN2dldBOLwQM0MtunRFgBkNmZ";
-  const rutaApod = `https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}`;
-  fetch(rutaApod)
-    .then((response) => response.json())
-    .then((resultado) => mostrarDatos(resultado));
-}
+$(document).ready(function () {
+  var myVar = setInterval(function () {
+    myTimer();
+  }, 1000);
 
-function mostrarDatos({ date, explanation, media_type, title, url }) {
-  const titulo = document.querySelector("#titulo");
-  titulo.innerHTML = title;
-  const fecha = document.querySelector("#fecha");
-  fecha.innerHTML = date;
-  const descripcion = document.querySelector("#descripcion");
-  descripcion.innerHTML = explanation;
-  const multimedia = document.querySelector("#multimedia");
-  if (media_type == "video") {
-    multimedia.innerHTML = `<iframe class="embed-responsive-item" src="${url}"></iframe>`;
-  } else {
-    multimedia.innerHTML = `<img src="${url}" class="img-fluid" alt="${url}">`;
+  function myTimer() {
+    var d = new Date();
+    document.getElementById("hora").innerHTML = d.toLocaleTimeString();
   }
-  Weglot.initialize({
-    api_key: "wg_f7d7a876e5782125838261e75585fc673",
+
+  let lastScroll = $(window).scrollTop();
+
+  $(window).scroll(function () {
+    const currentScroll = $(window).scrollTop();
+    if (currentScroll > lastScroll) {
+      // scroll down
+      $(".navbar").attr(
+        "style",
+        "position: fixed; z-index: 10; background-color: rgb(26, 37, 48); width: 100%; top: 0px;"
+      );
+    }
+    if (currentScroll == 0) {
+      $(".navbar").attr("style", "background-color: transparent;");
+    }
+
+    // scroll update
+    lastScroll = currentScroll <= 0 ? 0 : currentScroll;
   });
-}
+});
+window.callbellSettings = {
+  token: "e3jAUu2rKC8FurrZoQxumen6",
+};
+
+(function () {
+  var w = window;
+  var ic = w.callbell;
+  if (typeof ic === "function") {
+    ic("reattach_activator");
+    ic("update", callbellSettings);
+  } else {
+    var d = document;
+    var i = function () {
+      i.c(arguments);
+    };
+    i.q = [];
+    i.c = function (args) {
+      i.q.push(args);
+    };
+    w.Callbell = i;
+    var l = function () {
+      var s = d.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src =
+        "https://dash.callbell.eu/include/" +
+        window.callbellSettings.token +
+        ".js";
+      var x = d.getElementsByTagName("script")[0];
+      x.parentNode.insertBefore(s, x);
+    };
+    if (w.attachEvent) {
+      w.attachEvent("onload", l);
+    } else {
+      w.addEventListener("load", l, false);
+    }
+  }
+})();

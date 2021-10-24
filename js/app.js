@@ -30,7 +30,6 @@ $(document).ready(function () {
 window.callbellSettings = {
   token: "e3jAUu2rKC8FurrZoQxumen6",
 };
-
 (function () {
   var w = window;
   var ic = w.callbell;

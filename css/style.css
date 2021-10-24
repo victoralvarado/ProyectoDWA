@@ -13,14 +13,44 @@ main {
   flex-wrap: wrap;
   min-height: calc(100vh - 168px);
 }
-
-#contain_moon{
-  background-color:#9fbcdb4b;
-  color:rgb(0, 0, 0);
+#mapid {
+  height: 300px;
 }
-
+html::-webkit-scrollbar {
+  width: 17px;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: rgb(26, 37, 48);
+  background-clip: padding-box;
+  border: 1px solid #8ea5b5;
+  scrollbar-width: thin !important;
+}
+html::-webkit-scrollbar-track {
+  background-color: #8ea5b5;
+}
+::-webkit-scrollbar-button {
+  background-color: #8ea5b5;
+}
+/* Only IE */
+html {
+  scrollbar-face-color: rgb(26, 37, 48);
+  scrollbar-shadow-color: #8ea5b5;
+  scrollbar-highlight-color: #8ea5b5;
+  scrollbar-width: thin !important;
+}
+/* Only FireFox */
+html {
+  scrollbar-color: rgb(26, 34, 43) #8ea5b5;
+  scrollbar-width: thin !important;
+}
+/* View Scrollbar */
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin !important;
+}
 footer {
-  background-color:rgb(26, 37, 48);
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #191f24 100%);
   align-self: flex-end;
 }
 .header {
@@ -29,6 +59,12 @@ footer {
 }
 .header .navbar {
   background-color: transparent;
+}
+.navbar-brand {
+  width: 100px;
+}
+#contain_moon {
+  background-color: rgba(59, 138, 158, 0.349);
 }
 #stars-container {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #191f24 100%);

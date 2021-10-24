@@ -16,7 +16,7 @@ $(document).ready(function () {
       // scroll down
       $(".navbar").attr(
         "style",
-        "position: fixed; z-index: 10; background-color: rgb(26, 37, 48); width: 100%; top: 0px;"
+        "position: fixed; z-index: 10; background: radial-gradient(ellipse at bottom, #1b2735 0%, #191f24 100%); width: 100%; top: 0px;"
       );
     }
     if (currentScroll == 0) {
